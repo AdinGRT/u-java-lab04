@@ -23,6 +23,16 @@ public class ServletControlador extends HttpServlet {
         
         System.out.println("Clientes = " + clientes);
         request.setAttribute("clientes", clientes);
+        request.setAttribute("totalClientes", clientes.size());
+        request.setAttribute("saldoTotal", this.calcularSaldoTotal(clientes));
         request.getRequestDispatcher("clientes.jsp").forward(request, response);
+    }
+    
+    private double calcularSaldoTotal(List<Cliente> clientes) {
+        double saldoTotal = 0;
+        for(Cliente cliente: clientes) {
+            saldoTotal += cliente.getSaldo();
+        }
+        return saldoTotal;
     }
 }
