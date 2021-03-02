@@ -25,10 +25,19 @@ public class ServletControlador extends HttpServlet {
         List<Cliente> clientes = new ClienteDaoJDBC().listar();
         
         System.out.println("Clientes = " + clientes);
-        request.setAttribute("clientes", clientes);
-        request.setAttribute("totalClientes", clientes.size());
-        request.setAttribute("saldoTotal", this.calcularSaldoTotal(clientes));
-        request.getRequestDispatcher("clientes.jsp").forward(request, response);
+        // Al cambiar el redireccionamiento se debe cambiar el alcance
+        
+        HttpSession sesion = request.getSession();
+        
+        sesion.setAttribute("clientes", clientes);
+        sesion.setAttribute("totalClientes", clientes.size());
+        sesion.setAttribute("saldoTotal", this.calcularSaldoTotal(clientes));
+        
+        // Se quita este metodo de redireccionamiento ya que no notifica al navegador por lo tanto la url no cambia
+        //request.getRequestDispatcher("clientes.jsp").forward(request, response);
+      
+        // Este metodo si notifica al navegador por lo tanto cambia el url
+        response.sendRedirect("clientes.jsp");
     }
     
     private double calcularSaldoTotal(List<Cliente> clientes) {
