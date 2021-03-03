@@ -11,16 +11,16 @@
     </head>
     <body>
         <!--Cabecero-->
-        <jsp:include page="WEB-INF/paginas/comunes/cabecero.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/comunes/cabecero.jsp"/>
         
         <!--Botones de navegacion-->
-        <jsp:include page="WEB-INF/paginas/comunes/barraNavegacion.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/comunes/barraNavegacion.jsp"/>
         
         <!--Listado de Clientes-->
-        <jsp:include page="WEB-INF/paginas/cliente/listadoClientes.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/cliente/listadoClientes.jsp"/>
         
         <!--Pie de Pagina-->
-        <jsp:include page="WEB-INF/paginas/comunes/piePagina.jsp"/>
+        <jsp:include page="/WEB-INF/paginas/comunes/piePagina.jsp"/>
         
         
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
